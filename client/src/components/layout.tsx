@@ -1,64 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLocation } from "wouter";
-import { useStore } from "@/lib/store";
 import { EditableText } from "@/components/editable-text";
-import sealImage from "@assets/generated_images/red_wax_seal.png";
 import { cn } from "@/lib/utils";
-import { ScrollText, Users, Shield, Lock } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+import { ScrollText, Users, Shield } from "lucide-react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
-  const { isAdmin, toggleAdmin } = useStore();
-  const { toast } = useToast();
-  
-  const [showLoginDialog, setShowLoginDialog] = useState(false);
-  const [passwordInput, setPasswordInput] = useState("");
-  const [loginError, setLoginError] = useState(false);
-
-  const handleSealClick = () => {
-    if (isAdmin) {
-      toggleAdmin();
-      toast({
-        title: "Tome Sealed",
-        description: "You have closed the tome. Editing is disabled.",
-      });
-    } else {
-      setShowLoginDialog(true);
-      setPasswordInput("");
-      setLoginError(false);
-    }
-  };
-
-  const handleLogin = () => {
-    // Simple hardcoded password for static site demonstration
-    // In a real app, this would validate against a backend
-    if (passwordInput === "dragon") {
-      toggleAdmin();
-      setShowLoginDialog(false);
-      toast({
-        title: "Welcome, Grand Maester",
-        description: "The quill is yours. You may now chronicle history.",
-      });
-    } else {
-      setLoginError(true);
-      toast({
-        variant: "destructive",
-        title: "Access Denied",
-        description: "The seal remains unbroken. Incorrect passphrase.",
-      });
-    }
-  };
 
   const NavLink = ({ href, icon: Icon, children }: { href: string, icon: any, children: React.ReactNode }) => {
     const isActive = location === href;
@@ -118,71 +65,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
             className="mb-4 text-sm uppercase tracking-widest opacity-70 italic" 
           />
           
-          {/* Admin Toggle Seal */}
-          <button 
-            onClick={handleSealClick}
-            className="relative inline-block group transition-transform hover:scale-105 active:scale-95 focus:outline-none mt-4"
-            title={isAdmin ? "Seal the Tome (Logout)" : "Open the Tome (Admin)"}
-          >
-            <div className={cn(
-              "absolute -inset-4 bg-red-500/10 rounded-full blur-xl transition-opacity duration-500",
-              isAdmin ? "opacity-100" : "opacity-0 group-hover:opacity-50"
-            )} />
-            <img 
-              src={sealImage} 
-              alt="Admin Seal" 
-              className={cn(
-                "w-12 h-12 relative z-10 drop-shadow-md transition-all duration-500",
-                isAdmin ? "grayscale-0" : "grayscale-[0.5] opacity-80"
-              )}
-            />
-            {isAdmin && (
-              <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-heading text-primary font-bold whitespace-nowrap tracking-widest uppercase">
-                Master
-              </span>
-            )}
-          </button>
-          
           <p className="text-[10px] mt-8 opacity-30 uppercase tracking-widest">
              Static • Secure • Eternal
           </p>
         </footer>
       </div>
-
-      {/* Login Dialog */}
-      <Dialog open={showLoginDialog} onOpenChange={setShowLoginDialog}>
-        <DialogContent className="sm:max-w-[425px] font-body bg-card border-primary/20">
-          <DialogHeader>
-            <DialogTitle className="font-heading text-2xl text-center text-primary">Speak Friend and Enter</DialogTitle>
-            <DialogDescription className="text-center font-body italic">
-              The knowledge within is protected by ancient wards. Speak the passphrase to break the seal.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="flex items-center gap-4">
-              <Lock className="w-5 h-5 text-muted-foreground" />
-              <Input
-                id="password"
-                type="password"
-                placeholder="Passphrase..."
-                className={cn("font-body", loginError && "border-destructive focus-visible:ring-destructive")}
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleLogin()}
-              />
-            </div>
-            {loginError && (
-              <p className="text-xs text-destructive text-center font-body italic">
-                The wards flair... that is not the word.
-              </p>
-            )}
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setShowLoginDialog(false)} className="font-heading">Leave</Button>
-            <Button onClick={handleLogin} className="bg-primary hover:bg-primary/90 font-heading">Unlock</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

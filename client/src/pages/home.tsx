@@ -8,7 +8,7 @@ import { Plus, Feather } from "lucide-react";
 import landscapeImage from "@assets/Sword-Coast-Map_HighRes_1765012076904.jpg";
 
 export default function Home() {
-  const { journalEntries, isAdmin, addJournalEntry } = useStore();
+  const { journalEntries, addJournalEntry } = useStore();
 
   const handleCreateNew = () => {
     addJournalEntry({
@@ -51,17 +51,15 @@ export default function Home() {
         </div>
 
         {/* Add Button */}
-        {isAdmin && (
-          <div className="fixed bottom-8 right-8 z-50">
-            <Button 
-              size="lg" 
-              onClick={handleCreateNew}
-              className="h-14 w-14 rounded-full shadow-xl bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-white/20"
-            >
-              <Plus className="w-6 h-6" />
-            </Button>
-          </div>
-        )}
+        <div className="fixed bottom-8 right-8 z-50">
+          <Button 
+            size="lg" 
+            onClick={handleCreateNew}
+            className="h-14 w-14 rounded-full shadow-xl bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-white/20"
+          >
+            <Plus className="w-6 h-6" />
+          </Button>
+        </div>
       </div>
     </Layout>
   );

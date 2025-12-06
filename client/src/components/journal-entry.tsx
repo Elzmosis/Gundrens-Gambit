@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export function JournalEntryItem({ entry }: { entry: JournalEntry }) {
-  const { isAdmin, updateJournalEntry, deleteJournalEntry } = useStore();
+  const { updateJournalEntry, deleteJournalEntry } = useStore();
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(entry.title);
   const [editedDate, setEditedDate] = useState(entry.date);
@@ -67,7 +67,7 @@ export function JournalEntryItem({ entry }: { entry: JournalEntry }) {
           {/* Paper background effect for entry */}
           <div className="bg-card/40 backdrop-blur-[2px] p-6 rounded-sm shadow-sm border border-primary/10 relative overflow-hidden">
              {/* Admin Controls */}
-            {isAdmin && !isEditing && (
+            {!isEditing && (
               <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                 <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setIsEditing(true)}>
                   <Edit2 className="w-4 h-4" />

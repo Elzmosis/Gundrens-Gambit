@@ -29,9 +29,6 @@ export interface SiteConfig {
 }
 
 interface StoreContextType {
-  isAdmin: boolean;
-  toggleAdmin: () => void;
-  
   config: SiteConfig;
   updateConfig: (updates: Partial<SiteConfig>) => void;
 
@@ -107,13 +104,10 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     return [state, setState];
   };
 
-  const [isAdmin, setIsAdmin] = usePersistedState<boolean>("isAdmin", false);
   const [config, setConfig] = usePersistedState<SiteConfig>("siteConfig", INITIAL_CONFIG);
   const [journalEntries, setJournalEntries] = usePersistedState<JournalEntry[]>("journalEntries", INITIAL_JOURNAL);
   const [pcs, setPcs] = usePersistedState<Character[]>("pcs", INITIAL_PCS);
   const [npcs, setNpcs] = usePersistedState<Character[]>("npcs", INITIAL_NPCS);
-
-  const toggleAdmin = () => setIsAdmin(prev => !prev);
 
   const updateConfig = (updates: Partial<SiteConfig>) => {
     setConfig(prev => ({ ...prev, ...updates }));
@@ -163,7 +157,6 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <StoreContext.Provider value={{
-      isAdmin, toggleAdmin,
       config, updateConfig,
       journalEntries, addJournalEntry, updateJournalEntry, deleteJournalEntry,
       pcs, addPC, updatePC, deletePC,

@@ -14,7 +14,7 @@ interface EditableTextProps {
 }
 
 export function EditableText({ field, className, as: Component = "div", multiline = false }: EditableTextProps) {
-  const { config, updateConfig, isAdmin } = useStore();
+  const { config, updateConfig } = useStore();
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(config[field]);
 
@@ -65,15 +65,13 @@ export function EditableText({ field, className, as: Component = "div", multilin
         {config[field]}
       </Component>
       
-      {isAdmin && (
-        <button 
-          onClick={() => setIsEditing(true)}
-          className="absolute -right-6 top-0 opacity-0 group-hover:opacity-100 transition-opacity p-1 text-primary/50 hover:text-primary"
-          title="Edit text"
-        >
-          <Edit2 className="w-3 h-3" />
-        </button>
-      )}
+      <button 
+        onClick={() => setIsEditing(true)}
+        className="absolute -right-6 top-0 opacity-0 group-hover:opacity-100 transition-opacity p-1 text-primary/50 hover:text-primary"
+        title="Edit text"
+      >
+        <Edit2 className="w-3 h-3" />
+      </button>
     </div>
   );
 }

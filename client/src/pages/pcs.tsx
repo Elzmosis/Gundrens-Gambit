@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
 export default function PCsPage() {
-  const { pcs, isAdmin, addPC } = useStore();
+  const { pcs, addPC } = useStore();
 
   const handleAdd = () => {
     addPC({
@@ -39,8 +39,7 @@ export default function PCsPage() {
         ))}
         
         {/* Add Button (Card Style) */}
-        {isAdmin && (
-          <button 
+        <button 
             onClick={handleAdd}
             className="group flex flex-col items-center justify-center min-h-[400px] border-2 border-dashed border-primary/30 rounded-sm hover:bg-primary/5 transition-colors p-8 opacity-70 hover:opacity-100"
           >
@@ -49,7 +48,6 @@ export default function PCsPage() {
             </div>
             <span className="font-heading text-xl text-primary">Recruit Hero</span>
           </button>
-        )}
       </div>
     </Layout>
   );

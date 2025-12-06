@@ -12,7 +12,7 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character, type }: CharacterCardProps) {
-  const { isAdmin, updatePC, deletePC, updateNPC, deleteNPC } = useStore();
+  const { updatePC, deletePC, updateNPC, deleteNPC } = useStore();
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState(character.name);
   const [editedRole, setEditedRole] = useState(character.role);
@@ -131,13 +131,13 @@ export function CharacterCard({ character, type }: CharacterCardProps) {
         </div>
 
         {/* Admin Controls */}
-        {isAdmin && !isEditing && (
-          <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-card/80 p-1 rounded-sm shadow-sm backdrop-blur-sm">
-            <Button variant="ghost" size="icon" className="h-6 w-6 text-primary hover:text-primary hover:bg-primary/10" onClick={() => setIsEditing(true)}>
-              <Edit2 className="w-3 h-3" />
+        {!isEditing && (
+          <div className=\"absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-card/80 p-1 rounded-sm shadow-sm backdrop-blur-sm\">
+            <Button variant=\"ghost\" size=\"icon\" className=\"h-6 w-6 text-primary hover:text-primary hover:bg-primary/10\" onClick={() => setIsEditing(true)}>
+              <Edit2 className=\"w-3 h-3\" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-6 w-6 text-destructive hover:text-destructive hover:bg-destructive/10" onClick={handleDelete}>
-              <Trash2 className="w-3 h-3" />
+            <Button variant=\"ghost\" size=\"icon\" className=\"h-6 w-6 text-destructive hover:text-destructive hover:bg-destructive/10\" onClick={handleDelete}>
+              <Trash2 className=\"w-3 h-3\" />
             </Button>
           </div>
         )}
