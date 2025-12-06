@@ -84,6 +84,13 @@ const INITIAL_PCS: Character[] = [
     name: "Kaelen the Lost",
     role: "Human Ranger",
     description: "",
+  },
+  {
+    id: "3",
+    name: "Renard",
+    role: "Human Rogue",
+    description: "After years serving in the war, Renard returned home expecting peace—only to find his family farm seized by Neverwinter officials over unpaid taxes. With nothing left to return to and no patience for the city's bureaucracy, he took to the road, living by his wits and the skills the army never meant to teach him.",
+    imageUrl: `${import.meta.env.BASE_URL}images/renard.jpg`
   }
 ];
 
