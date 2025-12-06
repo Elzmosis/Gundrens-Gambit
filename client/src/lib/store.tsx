@@ -80,12 +80,6 @@ const INITIAL_PCS: Character[] = [
     imageUrl: `${import.meta.env.BASE_URL}images/nynral-liora.jpg`
   },
   {
-    id: "2",
-    name: "Kaelen the Lost",
-    role: "Human Ranger",
-    description: "",
-  },
-  {
     id: "3",
     name: "Renard",
     role: "Human Rogue",
