@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Layout } from "@/components/layout";
 import { useStore } from "@/lib/store";
+import { EditableText } from "@/components/editable-text";
 import { JournalEntryItem } from "@/components/journal-entry";
 import { Button } from "@/components/ui/button";
 import { Plus, Feather } from "lucide-react";
@@ -25,7 +26,13 @@ export default function Home() {
           <div className="w-full h-48 md:h-64 overflow-hidden rounded-md border-2 border-primary/20 shadow-inner mb-8 mask-image-gradient">
              <img src={landscapeImage} alt="Landscape" className="w-full h-full object-cover opacity-80 sepia hover:scale-105 transition-transform duration-1000" />
           </div>
-          <h2 className="text-3xl font-heading text-center mb-4">Recent Developments</h2>
+          <div className="flex justify-center">
+            <EditableText 
+              field="homeHeroTitle" 
+              as="h2" 
+              className="text-3xl font-heading text-center mb-4 inline-block" 
+            />
+          </div>
           <div className="h-1 w-24 bg-primary mx-auto rounded-full opacity-50" />
         </div>
 

@@ -17,10 +17,24 @@ export interface Character {
   imageUrl?: string;
 }
 
+export interface SiteConfig {
+  siteTitle: string;
+  siteSubtitle: string;
+  footerQuote: string;
+  homeHeroTitle: string;
+  pcsTitle: string;
+  pcsSubtitle: string;
+  npcsTitle: string;
+  npcsSubtitle: string;
+}
+
 interface StoreContextType {
   isAdmin: boolean;
   toggleAdmin: () => void;
   
+  config: SiteConfig;
+  updateConfig: (updates: Partial<SiteConfig>) => void;
+
   journalEntries: JournalEntry[];
   addJournalEntry: (entry: Omit<JournalEntry, "id">) => void;
   updateJournalEntry: (id: string, entry: Partial<JournalEntry>) => void;
@@ -40,6 +54,17 @@ interface StoreContextType {
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 // Initial Mock Data
+const INITIAL_CONFIG: SiteConfig = {
+  siteTitle: "The Chronicler's Tome",
+  siteSubtitle: "Legends of the Shattered Realm",
+  footerQuote: "\"History is written by the victors, but preserved by the scribes.\"",
+  homeHeroTitle: "Recent Developments",
+  pcsTitle: "The Fellowship",
+  pcsSubtitle: "Brave souls who have sworn to protect the realm against the encroaching darkness.",
+  npcsTitle: "Dramatis Personae",
+  npcsSubtitle: "Friends, foes, and those whose loyalties remain in the shadows.",
+};
+
 const INITIAL_JOURNAL: JournalEntry[] = [
   {
     id: "1",
@@ -83,11 +108,16 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   };
 
   const [isAdmin, setIsAdmin] = usePersistedState<boolean>("isAdmin", false);
+  const [config, setConfig] = usePersistedState<SiteConfig>("siteConfig", INITIAL_CONFIG);
   const [journalEntries, setJournalEntries] = usePersistedState<JournalEntry[]>("journalEntries", INITIAL_JOURNAL);
   const [pcs, setPcs] = usePersistedState<Character[]>("pcs", INITIAL_PCS);
   const [npcs, setNpcs] = usePersistedState<Character[]>("npcs", INITIAL_NPCS);
 
   const toggleAdmin = () => setIsAdmin(prev => !prev);
+
+  const updateConfig = (updates: Partial<SiteConfig>) => {
+    setConfig(prev => ({ ...prev, ...updates }));
+  };
 
   // Journal Actions
   const addJournalEntry = (entry: Omit<JournalEntry, "id">) => {
@@ -134,6 +164,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   return (
     <StoreContext.Provider value={{
       isAdmin, toggleAdmin,
+      config, updateConfig,
       journalEntries, addJournalEntry, updateJournalEntry, deleteJournalEntry,
       pcs, addPC, updatePC, deletePC,
       npcs, addNPC, updateNPC, deleteNPC

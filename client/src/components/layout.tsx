@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useStore } from "@/lib/store";
+import { EditableText } from "@/components/editable-text";
 import sealImage from "@assets/generated_images/red_wax_seal.png";
 import { cn } from "@/lib/utils";
 import { ScrollText, Users, Shield, Lock } from "lucide-react";
@@ -84,16 +85,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <div className="max-w-5xl mx-auto px-4 py-8 md:py-12 relative z-10">
         {/* Header / Navigation */}
         <header className="flex flex-col md:flex-row items-center justify-between mb-16 border-b border-border pb-8">
-          <div className="text-center md:text-left mb-6 md:mb-0 relative group">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary tracking-wide drop-shadow-sm">
-              The Chronicler's Tome
-            </h1>
-            <p className="font-body italic text-xl text-secondary mt-2 tracking-widest uppercase text-xs font-semibold">
-              Chronicles of the Shattered Realm
-            </p>
+          <div className="text-center md:text-left mb-6 md:mb-0 relative group w-full md:w-auto">
+            <EditableText 
+              field="siteTitle" 
+              as="h1" 
+              className="text-4xl md:text-6xl font-heading font-bold text-primary tracking-wide drop-shadow-sm" 
+            />
+            <EditableText 
+              field="siteSubtitle" 
+              as="p" 
+              className="font-body italic text-xl text-secondary mt-2 tracking-widest uppercase text-xs font-semibold" 
+            />
           </div>
 
-          <nav className="flex gap-2 bg-card/20 p-1 rounded-md backdrop-blur-sm border border-border shadow-sm">
+          <nav className="flex gap-2 bg-card/20 p-1 rounded-md backdrop-blur-sm border border-border shadow-sm mt-4 md:mt-0">
             <NavLink href="/" icon={ScrollText}>Journal</NavLink>
             <NavLink href="/pcs" icon={Shield}>Heroes</NavLink>
             <NavLink href="/npcs" icon={Users}>Faces</NavLink>
@@ -107,7 +112,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Footer */}
         <footer className="mt-20 pt-8 border-t border-border text-center font-body text-muted-foreground relative pb-12">
-          <p className="mb-4 text-sm uppercase tracking-widest opacity-70">"Verba Volant, Scripta Manent"</p>
+          <EditableText 
+            field="footerQuote" 
+            as="p" 
+            className="mb-4 text-sm uppercase tracking-widest opacity-70 italic" 
+          />
           
           {/* Admin Toggle Seal */}
           <button 

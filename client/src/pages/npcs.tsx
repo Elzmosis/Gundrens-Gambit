@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout } from "@/components/layout";
 import { useStore } from "@/lib/store";
+import { EditableText } from "@/components/editable-text";
 import { CharacterCard } from "@/components/character-card";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -18,11 +19,18 @@ export default function NPCsPage() {
 
   return (
     <Layout>
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-heading mb-4">Dramatis Personae</h2>
-        <p className="text-lg font-body max-w-2xl mx-auto text-muted-foreground">
-          Friends, foes, and those whose loyalties remain in the shadows.
-        </p>
+      <div className="text-center mb-12 flex flex-col items-center">
+        <EditableText 
+          field="npcsTitle" 
+          as="h2" 
+          className="text-4xl font-heading mb-4" 
+        />
+        <EditableText 
+          field="npcsSubtitle" 
+          as="p" 
+          className="text-lg font-body max-w-2xl mx-auto text-muted-foreground" 
+          multiline
+        />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
