@@ -113,7 +113,7 @@ export function CharacterCard({ character, type }: CharacterCardProps) {
               <Textarea 
                 value={editedDesc}
                 onChange={(e) => setEditedDesc(e.target.value)}
-                className="font-body text-sm min-h-[100px] bg-white/30 resize-none"
+                className="font-body text-sm min-h-[100px] bg-card/30 resize-none"
               />
               <div className="flex gap-2 justify-center pt-2">
                 <Button size="sm" onClick={handleSave} className="bg-primary hover:bg-primary/90 text-primary-foreground">
@@ -132,7 +132,7 @@ export function CharacterCard({ character, type }: CharacterCardProps) {
 
         {/* Admin Controls */}
         {isAdmin && !isEditing && (
-          <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 p-1 rounded-sm shadow-sm backdrop-blur-sm">
+          <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-card/80 p-1 rounded-sm shadow-sm backdrop-blur-sm">
             <Button variant="ghost" size="icon" className="h-6 w-6 text-primary hover:text-primary hover:bg-primary/10" onClick={() => setIsEditing(true)}>
               <Edit2 className="w-3 h-3" />
             </Button>

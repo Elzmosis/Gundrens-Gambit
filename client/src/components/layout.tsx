@@ -93,7 +93,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </p>
           </div>
 
-          <nav className="flex gap-2 bg-white/50 p-1 rounded-md backdrop-blur-sm border border-border shadow-sm">
+          <nav className="flex gap-2 bg-card/20 p-1 rounded-md backdrop-blur-sm border border-border shadow-sm">
             <NavLink href="/" icon={ScrollText}>Journal</NavLink>
             <NavLink href="/pcs" icon={Shield}>Heroes</NavLink>
             <NavLink href="/npcs" icon={Users}>Faces</NavLink>
@@ -142,7 +142,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Login Dialog */}
       <Dialog open={showLoginDialog} onOpenChange={setShowLoginDialog}>
-        <DialogContent className="sm:max-w-[425px] font-body bg-[#faf9f6] border-primary/20">
+        <DialogContent className="sm:max-w-[425px] font-body bg-card border-primary/20">
           <DialogHeader>
             <DialogTitle className="font-heading text-2xl text-center text-primary">Speak Friend and Enter</DialogTitle>
             <DialogDescription className="text-center font-body italic">

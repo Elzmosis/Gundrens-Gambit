@@ -65,7 +65,7 @@ export function JournalEntryItem({ entry }: { entry: JournalEntry }) {
         {/* Content Column */}
         <div className="flex-grow relative group">
           {/* Paper background effect for entry */}
-          <div className="bg-white/40 backdrop-blur-[2px] p-6 rounded-sm shadow-sm border border-primary/10 relative overflow-hidden">
+          <div className="bg-card/40 backdrop-blur-[2px] p-6 rounded-sm shadow-sm border border-primary/10 relative overflow-hidden">
              {/* Admin Controls */}
             {isAdmin && !isEditing && (
               <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -87,7 +87,7 @@ export function JournalEntryItem({ entry }: { entry: JournalEntry }) {
                   placeholder="Entry Title"
                 />
                 
-                <div className="relative min-h-[200px] border-2 border-dashed border-primary/20 rounded-md flex flex-col items-center justify-center p-4 bg-white/50">
+                <div className="relative min-h-[200px] border-2 border-dashed border-primary/20 rounded-md flex flex-col items-center justify-center p-4 bg-card/50">
                   {editedImage ? (
                     <div className="relative w-full">
                       <img src={editedImage} className="w-full rounded-sm max-h-[400px] object-cover" />
@@ -126,7 +126,7 @@ export function JournalEntryItem({ entry }: { entry: JournalEntry }) {
                 <h2 className="text-3xl font-heading font-bold text-foreground mb-4">{entry.title}</h2>
                 
                 {entry.imageUrl && (
-                  <div className="mb-6 rounded-sm overflow-hidden border-4 border-white shadow-md rotate-1 max-w-full md:max-w-lg mx-auto">
+                  <div className="mb-6 rounded-sm overflow-hidden border-4 border-border shadow-md rotate-1 max-w-full md:max-w-lg mx-auto">
                     <img src={entry.imageUrl} alt={entry.title} className="w-full h-auto sepia-[.1]" />
                   </div>
                 )}
