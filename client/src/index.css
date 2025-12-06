@@ -2,43 +2,43 @@
 @import "tw-animate-css";
 
 @theme inline {
-  --color-background: hsl(45 29% 90%); /* Parchment Light */
-  --color-foreground: hsl(25 50% 15%); /* Ink Black */
+  --color-background: hsl(35 20% 96%); /* Clean Cream Paper */
+  --color-foreground: hsl(25 10% 20%); /* Soft Black Ink */
   
-  --color-card: hsl(45 30% 85%);
-  --color-card-foreground: hsl(25 50% 15%);
+  --color-card: hsl(35 20% 98%);
+  --color-card-foreground: hsl(25 10% 20%);
   
-  --color-popover: hsl(45 30% 85%);
-  --color-popover-foreground: hsl(25 50% 15%);
+  --color-popover: hsl(35 20% 98%);
+  --color-popover-foreground: hsl(25 10% 20%);
   
-  --color-primary: hsl(15 50% 35%); /* Wax Red / Leather */
-  --color-primary-foreground: hsl(45 30% 90%);
+  --color-primary: hsl(15 40% 40%); /* Deep Rust Red */
+  --color-primary-foreground: hsl(35 20% 98%);
   
-  --color-secondary: hsl(35 40% 40%); /* Aged Gold/Brown */
-  --color-secondary-foreground: hsl(45 30% 90%);
+  --color-secondary: hsl(35 15% 40%); /* Muted Bronze/Brown */
+  --color-secondary-foreground: hsl(35 20% 98%);
   
-  --color-muted: hsl(35 20% 70%);
-  --color-muted-foreground: hsl(25 30% 30%);
+  --color-muted: hsl(35 10% 85%);
+  --color-muted-foreground: hsl(25 10% 40%);
   
-  --color-accent: hsl(35 40% 50%);
-  --color-accent-foreground: hsl(45 30% 90%);
+  --color-accent: hsl(200 15% 40%); /* Slate Blue Accent */
+  --color-accent-foreground: hsl(35 20% 98%);
   
-  --color-destructive: hsl(0 60% 40%);
-  --color-destructive-foreground: hsl(45 30% 90%);
+  --color-destructive: hsl(0 50% 40%);
+  --color-destructive-foreground: hsl(35 20% 98%);
   
-  --color-border: hsl(35 30% 50%);
-  --color-input: hsl(35 30% 50%);
-  --color-ring: hsl(15 50% 35%);
+  --color-border: hsl(35 15% 80%);
+  --color-input: hsl(35 15% 80%);
+  --color-ring: hsl(15 40% 40%);
   
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
 
   --font-heading: 'Cinzel Decorative', serif;
   --font-body: 'Cormorant Garamond', serif;
   --font-hand: 'Homemade Apple', cursive;
   
-  --shadow-parchment: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --shadow-parchment: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
 }
 
 @layer base {
@@ -47,36 +47,30 @@
   }
   body {
     @apply font-body bg-background text-foreground min-h-screen;
-    background-color: #f4e4bc; /* Fallback */
-    background-image: url('/attached_assets/parchment_texture.png'); /* Will be updated with generated asset name */
-    background-size: cover;
-    background-attachment: fixed;
-    background-blend-mode: multiply;
+    /* Clean paper texture - subtle noise instead of parchment */
+    background-image: linear-gradient(to bottom right, rgba(255,255,255,0.8), rgba(255,255,255,0.5)), 
+                      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-primary;
+    @apply font-heading font-bold text-primary tracking-wide;
   }
 }
 
 @layer utilities {
   .text-shadow {
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
   }
   
   .ink-border {
-    border: 2px solid var(--color-border);
-    border-radius: 2px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--color-border);
   }
   
   .paper-edge {
-    box-shadow: 
-      0 1px 4px rgba(0,0,0,0.3),
-      0 0 40px rgba(0,0,0,0.1) inset;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
   
   .handwritten {
-    @apply font-hand text-xl text-foreground/90 rotate-[-1deg];
+    @apply font-hand text-lg text-foreground/80 rotate-[-1deg];
   }
 }
