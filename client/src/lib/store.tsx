@@ -80,7 +80,7 @@ const INITIAL_PCS: Character[] = [
     imageUrl: `${import.meta.env.BASE_URL}images/nynral-liora.jpg`
   },
   {
-    id: "3",
+    id: "2",
     name: "Renard",
     role: "Human Rogue",
     description: "After years serving in the war, Renard returned home expecting peace—only to find his family farm seized by Neverwinter officials over unpaid taxes. With nothing left to return to and no patience for the city's bureaucracy, he took to the road, living by his wits and the skills the army never meant to teach him.",
@@ -88,14 +88,7 @@ const INITIAL_PCS: Character[] = [
   }
 ];
 
-const INITIAL_NPCS: Character[] = [
-  {
-    id: "1",
-    name: "Madame Zora",
-    role: "Fortune Teller",
-    description: "An elderly woman with milky white eyes who claims to see the threads of fate. She warned us against entering the crypts beneath the city.",
-  }
-];
+const INITIAL_NPCS: Character[] = [];
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   // Helper for localStorage
