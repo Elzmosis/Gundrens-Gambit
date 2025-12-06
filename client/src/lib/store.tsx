@@ -77,7 +77,7 @@ const INITIAL_PCS: Character[] = [
     name: "Nynral Liora",
     role: "Aasimar Sorcerer",
     description: "A pale and soft-spoken aasimar from a distant farming hamlet, Nynral carries a quiet power he barely understands. Strange magic has guided him since childhood, pushing him to leave home and follow a path he cannot name. Calm in danger and comfortable in shadow, he seems touched by something otherworldly… though he rarely speaks of it.",
-    imageUrl: "/Gundrens-Gambit/attached_assets/generated_images/nynral-liora.jpg"
+    imageUrl: "/images/nynral-liora.jpg"
   },
   {
     id: "2",
