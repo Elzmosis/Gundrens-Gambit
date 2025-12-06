@@ -74,6 +74,13 @@ const INITIAL_JOURNAL: JournalEntry[] = [
 const INITIAL_PCS: Character[] = [
   {
     id: "1",
+    name: "Nynral Liora",
+    role: "Aasimar Sorcerer",
+    description: "A pale and soft-spoken aasimar from a distant farming hamlet, Nynral carries a quiet power he barely understands. Strange magic has guided him since childhood, pushing him to leave home and follow a path he cannot name. Calm in danger and comfortable in shadow, he seems touched by something otherworldly… though he rarely speaks of it.",
+    imageUrl: "/attached_assets/nynral-liora.jpg"
+  },
+  {
+    id: "2",
     name: "Kaelen the Lost",
     role: "Human Ranger",
     description: "A wanderer from the northern wastes, seeking the truth of his lineage. He carries a bow made of white ash and wears a cloak that seems to shift color with the shadows.",
