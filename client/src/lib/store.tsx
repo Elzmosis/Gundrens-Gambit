@@ -83,7 +83,7 @@ const INITIAL_PCS: Character[] = [
     id: "2",
     name: "Kaelen the Lost",
     role: "Human Ranger",
-    description: "A wanderer from the northern wastes, seeking the truth of his lineage. He carries a bow made of white ash and wears a cloak that seems to shift color with the shadows.",
+    description: "",
   }
 ];
 
