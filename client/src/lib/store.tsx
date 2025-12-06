@@ -1,0 +1,152 @@
+import React, { createContext, useContext, useEffect, useState } from "react";
+
+// Types
+export interface JournalEntry {
+  id: string;
+  title: string;
+  date: string;
+  content: string;
+  imageUrl?: string;
+}
+
+export interface Character {
+  id: string;
+  name: string;
+  role: string; // Class/Race or Title
+  description: string;
+  imageUrl?: string;
+}
+
+interface StoreContextType {
+  isAdmin: boolean;
+  toggleAdmin: () => void;
+  
+  journalEntries: JournalEntry[];
+  addJournalEntry: (entry: Omit<JournalEntry, "id">) => void;
+  updateJournalEntry: (id: string, entry: Partial<JournalEntry>) => void;
+  deleteJournalEntry: (id: string) => void;
+  
+  pcs: Character[];
+  addPC: (char: Omit<Character, "id">) => void;
+  updatePC: (id: string, char: Partial<Character>) => void;
+  deletePC: (id: string) => void;
+  
+  npcs: Character[];
+  addNPC: (char: Omit<Character, "id">) => void;
+  updateNPC: (id: string, char: Partial<Character>) => void;
+  deleteNPC: (id: string) => void;
+}
+
+const StoreContext = createContext<StoreContextType | undefined>(undefined);
+
+// Initial Mock Data
+const INITIAL_JOURNAL: JournalEntry[] = [
+  {
+    id: "1",
+    title: "Arrival at Blackwood",
+    date: "Spring, Era 4",
+    content: "We arrived at the edge of the Blackwood forest just as the sun began to set. The trees here are twisted, their bark dark as charcoal. There is a strange silence in the air, broken only by the occasional caw of a raven. Kaelen believes the old ruins lie somewhere to the north.",
+  },
+];
+
+const INITIAL_PCS: Character[] = [
+  {
+    id: "1",
+    name: "Kaelen the Lost",
+    role: "Human Ranger",
+    description: "A wanderer from the northern wastes, seeking the truth of his lineage. He carries a bow made of white ash and wears a cloak that seems to shift color with the shadows.",
+  }
+];
+
+const INITIAL_NPCS: Character[] = [
+  {
+    id: "1",
+    name: "Madame Zora",
+    role: "Fortune Teller",
+    description: "An elderly woman with milky white eyes who claims to see the threads of fate. She warned us against entering the crypts beneath the city.",
+  }
+];
+
+export function StoreProvider({ children }: { children: React.ReactNode }) {
+  // Helper for localStorage
+  const usePersistedState = <T,>(key: string, initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] => {
+    const [state, setState] = useState<T>(() => {
+      const stored = localStorage.getItem(key);
+      return stored ? JSON.parse(stored) : initialValue;
+    });
+
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(state));
+    }, [key, state]);
+
+    return [state, setState];
+  };
+
+  const [isAdmin, setIsAdmin] = usePersistedState<boolean>("isAdmin", false);
+  const [journalEntries, setJournalEntries] = usePersistedState<JournalEntry[]>("journalEntries", INITIAL_JOURNAL);
+  const [pcs, setPcs] = usePersistedState<Character[]>("pcs", INITIAL_PCS);
+  const [npcs, setNpcs] = usePersistedState<Character[]>("npcs", INITIAL_NPCS);
+
+  const toggleAdmin = () => setIsAdmin(prev => !prev);
+
+  // Journal Actions
+  const addJournalEntry = (entry: Omit<JournalEntry, "id">) => {
+    const newEntry = { ...entry, id: Math.random().toString(36).substr(2, 9) };
+    setJournalEntries([newEntry, ...journalEntries]);
+  };
+
+  const updateJournalEntry = (id: string, updates: Partial<JournalEntry>) => {
+    setJournalEntries(prev => prev.map(e => e.id === id ? { ...e, ...updates } : e));
+  };
+
+  const deleteJournalEntry = (id: string) => {
+    setJournalEntries(prev => prev.filter(e => e.id !== id));
+  };
+
+  // PC Actions
+  const addPC = (char: Omit<Character, "id">) => {
+    const newChar = { ...char, id: Math.random().toString(36).substr(2, 9) };
+    setPcs([...pcs, newChar]);
+  };
+  
+  const updatePC = (id: string, updates: Partial<Character>) => {
+    setPcs(prev => prev.map(c => c.id === id ? { ...c, ...updates } : c));
+  };
+
+  const deletePC = (id: string) => {
+    setPcs(prev => prev.filter(c => c.id !== id));
+  };
+
+  // NPC Actions
+  const addNPC = (char: Omit<Character, "id">) => {
+    const newChar = { ...char, id: Math.random().toString(36).substr(2, 9) };
+    setNpcs([...npcs, newChar]);
+  };
+
+  const updateNPC = (id: string, updates: Partial<Character>) => {
+    setNpcs(prev => prev.map(c => c.id === id ? { ...c, ...updates } : c));
+  };
+
+  const deleteNPC = (id: string) => {
+    setNpcs(prev => prev.filter(c => c.id !== id));
+  };
+
+  return (
+    <StoreContext.Provider value={{
+      isAdmin, toggleAdmin,
+      journalEntries, addJournalEntry, updateJournalEntry, deleteJournalEntry,
+      pcs, addPC, updatePC, deletePC,
+      npcs, addNPC, updateNPC, deleteNPC
+    }}>
+      {children}
+    </StoreContext.Provider>
+  );
+}
+
+export function useStore() {
+  const context = useContext(StoreContext);
+  if (context === undefined) {
+    throw new Error("useStore must be used within a StoreProvider");
+  }
+  return context;
+}
