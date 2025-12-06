@@ -5,7 +5,7 @@ import { EditableText } from "@/components/editable-text";
 import { JournalEntryItem } from "@/components/journal-entry";
 import { Button } from "@/components/ui/button";
 import { Plus, Feather } from "lucide-react";
-import landscapeImage from "@assets/generated_images/map_of_the_sword_coast.png";
+import landscapeImage from "@assets/Sword-Coast-Map_HighRes_1765012076904.jpg";
 
 export default function Home() {
   const { journalEntries, isAdmin, addJournalEntry } = useStore();
