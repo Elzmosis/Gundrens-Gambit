@@ -24,7 +24,7 @@ export default function Home() {
         {/* Hero / Intro */}
         <div className="mb-16 text-center relative">
           <div className="w-full h-48 md:h-64 overflow-hidden rounded-md border-2 border-primary/20 shadow-inner mb-8 mask-image-gradient">
-             <img src={landscapeImage} alt="Landscape" className="w-full h-full object-cover opacity-80 sepia hover:scale-105 transition-transform duration-1000" />
+             <img src={landscapeImage} alt="Landscape" className="w-full h-full object-contain object-center" />
           </div>
           <div className="flex justify-center">
             <EditableText 
