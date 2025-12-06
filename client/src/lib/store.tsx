@@ -67,7 +67,7 @@ const INITIAL_JOURNAL: JournalEntry[] = [
     id: "1",
     title: "Arrival at Blackwood",
     date: "Spring, Era 4",
-    content: "We arrived at the edge of the Blackwood forest just as the sun began to set. The trees here are twisted, their bark dark as charcoal. There is a strange silence in the air, broken only by the occasional caw of a raven. Kaelen believes the old ruins lie somewhere to the north.",
+    content: "We arrived at the edge of the Blackwood forest just as the sun began to set. The trees here are twisted, their bark dark as charcoal. There is a strange silence in the air, broken only by the occasional caw of a raven. The old ruins are said to lie somewhere to the north.",
   },
 ];
 
