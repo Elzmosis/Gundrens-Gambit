@@ -23,8 +23,8 @@ export default function Home() {
       <div className="max-w-3xl mx-auto">
         {/* Hero / Intro */}
         <div className="mb-16 text-center relative">
-          <div className="w-full h-48 md:h-64 overflow-hidden rounded-md border-2 border-primary/20 shadow-inner mb-8 mask-image-gradient">
-             <img src={landscapeImage} alt="Landscape" className="w-full h-full object-contain object-center" />
+          <div className="w-full overflow-hidden rounded-md border-2 border-primary/20 shadow-inner mb-8">
+             <img src={landscapeImage} alt="Landscape" className="w-full h-auto" />
           </div>
           <div className="flex justify-center">
             <EditableText 
