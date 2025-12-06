@@ -1,10 +1,5 @@
-import React, { useState, useRef } from "react";
-import { useStore, Character } from "@/lib/store";
-import { Trash2, Upload, Edit2, Check } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import React from "react";
+import { Character } from "@/lib/store";
 
 interface CharacterCardProps {
   character: Character;
@@ -12,46 +7,6 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character, type }: CharacterCardProps) {
-  const { updatePC, deletePC, updateNPC, deleteNPC } = useStore();
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedName, setEditedName] = useState(character.name);
-  const [editedRole, setEditedRole] = useState(character.role);
-  const [editedDesc, setEditedDesc] = useState(character.description);
-  const [editedImage, setEditedImage] = useState(character.imageUrl);
-  
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleSave = () => {
-    const updates = {
-      name: editedName,
-      role: editedRole,
-      description: editedDesc,
-      imageUrl: editedImage
-    };
-    
-    if (type === "pc") updatePC(character.id, updates);
-    else updateNPC(character.id, updates);
-    
-    setIsEditing(false);
-  };
-
-  const handleDelete = () => {
-    if (confirm("Are you sure you want to banish this soul?")) {
-      if (type === "pc") deletePC(character.id);
-      else deleteNPC(character.id);
-    }
-  };
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setEditedImage(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   return (
     <div className="relative group perspective-1000">
@@ -64,9 +19,9 @@ export function CharacterCard({ character, type }: CharacterCardProps) {
 
         {/* Image Area */}
         <div className="aspect-[3/4] w-full bg-muted/20 mb-4 border border-border/50 relative overflow-hidden rounded-sm group-hover:sepia-[.2] transition-all">
-          {(isEditing ? editedImage : character.imageUrl) ? (
+          {character.imageUrl ? (
             <img 
-              src={isEditing ? editedImage : character.imageUrl} 
+              src={character.imageUrl} 
               alt={character.name}
               className="w-full h-full object-cover" 
             />
@@ -75,24 +30,18 @@ export function CharacterCard({ character, type }: CharacterCardProps) {
               No Portrait
             </div>
           )}
-          
-          {isEditing && (
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-               <Button 
-                 variant="outline" 
-                 className="text-white border-white hover:bg-white/20"
-                 onClick={() => fileInputRef.current?.click()}
-               >
-                 <Upload className="w-4 h-4 mr-2" /> Change
-               </Button>
-               <input 
-                 type="file" 
-                 ref={fileInputRef} 
-                 className="hidden" 
-                 accept="image/*"
-                 onChange={handleImageUpload}
-               />
-            </div>
+        </div>
+
+        {/* Content Area */}
+        <div className="space-y-2 text-center">
+          <h3 className="text-2xl font-heading font-bold text-primary leading-none">{character.name}</h3>
+          <p className="text-secondary font-body italic border-b border-primary/10 pb-2 mx-4">{character.role}</p>
+          <p className="text-foreground/80 font-body leading-relaxed text-sm">{character.description}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
           )}
         </div>
 

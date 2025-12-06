@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
-import { EditableText } from "@/components/editable-text";
 import { cn } from "@/lib/utils";
 import { ScrollText, Users, Shield } from "lucide-react";
 
@@ -33,16 +32,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {/* Header / Navigation */}
         <header className="flex flex-col md:flex-row items-center justify-between mb-16 border-b border-border pb-8">
           <div className="text-center md:text-left mb-6 md:mb-0 relative group w-full md:w-auto">
-            <EditableText 
-              field="siteTitle" 
-              as="h1" 
-              className="text-4xl md:text-6xl font-heading font-bold text-primary tracking-wide drop-shadow-sm" 
-            />
-            <EditableText 
-              field="siteSubtitle" 
-              as="p" 
-              className="font-body italic text-xl text-secondary mt-2 tracking-widest uppercase text-xs font-semibold" 
-            />
+            <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary tracking-wide drop-shadow-sm">
+              The Chronicler's Tome
+            </h1>
+            <p className="font-body italic text-xl text-secondary mt-2 tracking-widest uppercase text-xs font-semibold">
+              Legends of the Shattered Realm
+            </p>
           </div>
 
           <nav className="flex gap-2 bg-card/20 p-1 rounded-md backdrop-blur-sm border border-border shadow-sm mt-4 md:mt-0">
@@ -59,11 +54,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Footer */}
         <footer className="mt-20 pt-8 border-t border-border text-center font-body text-muted-foreground relative pb-12">
-          <EditableText 
-            field="footerQuote" 
-            as="p" 
-            className="mb-4 text-sm uppercase tracking-widest opacity-70 italic" 
-          />
+          <p className="mb-4 text-sm uppercase tracking-widest opacity-70 italic">
+            "History is written by the victors, but preserved by the scribes."
+          </p>
           
           <p className="text-[10px] mt-8 opacity-30 uppercase tracking-widest">
              Static • Secure • Eternal
