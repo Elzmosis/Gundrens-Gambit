@@ -57,7 +57,7 @@ const INITIAL_CONFIG: SiteConfig = {
   footerQuote: "\"History is written by the victors, but preserved by the scribes.\"",
   homeHeroTitle: "Recent Developments",
   pcsTitle: "Player Characters",
-  pcsSubtitle: "Brave souls who have sworn to protect the realm against the encroaching darkness.",
+  pcsSubtitle: "",
   npcsTitle: "Dramatis Personae",
   npcsSubtitle: "Friends, foes, and those whose loyalties remain in the shadows.",
 };
