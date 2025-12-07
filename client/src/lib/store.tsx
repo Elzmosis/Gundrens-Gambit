@@ -92,6 +92,13 @@ const INITIAL_PCS: Character[] = [
     role: "Storm Goliath Barbarian",
     description: "Ophelia hails from a harsh mountain clan where strength and storm wisdom were prized above all. Marked from birth by strange lightning patterns in her skin, she grew into a fierce warrior: quiet, disciplined, and unyielding. When a devastating storm shattered her home and awakened a power she couldn't explain, she left the peaks to seek answers and purpose beyond her clan.\n\nNow travelling as a sellsword, Ophelia carries the storm with her, both in her glowing eyes and in the fury she unleashes when threatened. Though she speaks little of her past, she protects those beside her with the same ferocity she once guarded her mountain kin.",
     imageUrl: `${import.meta.env.BASE_URL}images/ophelia.jpg`
+  },
+  {
+    id: "4",
+    name: "Whetū",
+    role: "Human Fighter",
+    description: "Whetū is an islandborn fighter who left his struggling home village to earn coin and experience on the mainland. Steady, practical, and shaped by hard seas, he carries a quiet drive to one day return and set things right especially after thieves once emptied his village's stores before he could defend them. Now he takes whatever honest work he can find, always keeping an eye out for the chance to settle old debts and build a future worth sailing back to.",
+    imageUrl: `${import.meta.env.BASE_URL}images/whetu.jpg`
   }
 ];
 
