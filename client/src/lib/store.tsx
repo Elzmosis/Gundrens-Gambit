@@ -64,6 +64,12 @@ const INITIAL_CONFIG: SiteConfig = {
 
 const INITIAL_JOURNAL: JournalEntry[] = [
   {
+    id: "4",
+    title: "Battle on the Triboar",
+    date: "Spring, Era 4",
+    content: "After leaving the Highroad, the group followed the Triboar Trail east through the woods before spotting two dead horses lying across the path ahead. Upon closer inspection, they realised the animals belonged to Gundren Rockseeker and Sildar Hallwinter. A trail of blood led off the path and deeper into the forest.\n\nBefore they could react, five goblins burst from the shadows and attacked. A brief but fierce fight followed, leaving all but one goblin dead. During the chaos, Mary fled the scene.\n\nThe surviving goblin, who called himself \"Snig,\" was interrogated and offered to guide the party to his tribe's lair in exchange for his life. Snig led them along the blood-soaked trail until they reached a small creek running into the mouth of a cave. From there, the group retreated deeper into the forest to rest before beginning their rescue mission.",
+  },
+  {
     id: "3",
     title: "Bandits on the Highroad",
     date: "Spring, Era 4",
