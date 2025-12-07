@@ -65,9 +65,9 @@ const INITIAL_CONFIG: SiteConfig = {
 const INITIAL_JOURNAL: JournalEntry[] = [
   {
     id: "1",
-    title: "Arrival at Blackwood",
+    title: "Arrival to Neverwinter",
     date: "Spring, Era 4",
-    content: "We arrived at the edge of the Blackwood forest just as the sun began to set. The trees here are twisted, their bark dark as charcoal. There is a strange silence in the air, broken only by the occasional caw of a raven. The old ruins are said to lie somewhere to the north.",
+    content: "After receiving a letter from Gundren Rockseeker, Ophelia, Nynral, Renard, Whetu, and Iverest gathered in the merchant streets of Neverwinter to escort his wagon of supplies to the frontier town of Phandalin.\n\nUpon their arrival, the party was instead met by Sildar Hallwinter, protector to Gundren and an esteemed member of the Lords Alliance. He informed them that Gundren had already ridden ahead, unable to contain his excitement for what awaited in Phandalin. After delivering the news, Sildar mounted his horse and left the party to finish preparing the wagon for the journey.",
   },
 ];
 
