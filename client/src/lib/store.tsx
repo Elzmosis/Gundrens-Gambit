@@ -85,6 +85,13 @@ const INITIAL_PCS: Character[] = [
     role: "Human Rogue",
     description: "After years serving in the war, Renard returned home expecting peace—only to find his family farm seized by Neverwinter officials over unpaid taxes. With nothing left to return to and no patience for the city's bureaucracy, he took to the road, living by his wits and the skills the army never meant to teach him.",
     imageUrl: `${import.meta.env.BASE_URL}images/renard.jpg`
+  },
+  {
+    id: "3",
+    name: "Ophelia",
+    role: "Storm Goliath Barbarian",
+    description: "Ophelia hails from a harsh mountain clan where strength and storm-wisdom were prized above all. Marked from birth by strange lightning patterns in her skin, she grew into a fierce warrior—quiet, disciplined, and unyielding. When a devastating storm shattered her home and awakened a power she couldn't explain, she left the peaks to seek answers and purpose beyond her clan.\n\nNow travelling as a sellsword, Ophelia carries the storm with her—both in her glowing eyes and in the fury she unleashes when threatened. Though she speaks little of her past, she protects those beside her with the same ferocity she once guarded her mountain kin.",
+    imageUrl: `${import.meta.env.BASE_URL}images/ophelia.jpg`
   }
 ];
 
