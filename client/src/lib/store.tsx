@@ -99,6 +99,13 @@ const INITIAL_PCS: Character[] = [
     role: "Human Fighter",
     description: "Whetū is an islandborn fighter who left his struggling home village to earn coin and experience on the mainland. Steady, practical, and shaped by hard seas, he carries a quiet drive to one day return and set things right especially after thieves once emptied his village's stores before he could defend them. Now he takes whatever honest work he can find, always keeping an eye out for the chance to settle old debts and build a future worth sailing back to.",
     imageUrl: `${import.meta.env.BASE_URL}images/whetu.jpg`
+  },
+  {
+    id: "5",
+    name: "Iverest Stalion",
+    role: "Wood Elf Druid",
+    description: "Iverest is a quiet wood elf druid who travels the frontier following faint traces of his missing mentor's magic. Known for his steady hands and crafted tools, he prefers guidance over force, stepping in only when nature's balance tilts too far. Though many believe his mentor long gone, Iverest reads signs in bark, wind, and earth that keep the trail alive and his journey pointed toward the wilds around Neverwinter.",
+    imageUrl: `${import.meta.env.BASE_URL}images/iverest.jpg`
   }
 ];
 
