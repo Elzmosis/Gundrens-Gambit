@@ -67,7 +67,7 @@ const INITIAL_JOURNAL: JournalEntry[] = [
     id: "1",
     title: "Arrival to Neverwinter",
     date: "Spring, Era 4",
-    content: "After receiving a letter from Gundren Rockseeker, Ophelia, Nynral, Renard, Whetu, and Iverest gathered in the merchant streets of Neverwinter to escort his wagon of supplies to the frontier town of Phandalin.\n\nUpon their arrival, the party was instead met by Sildar Hallwinter, protector to Gundren and an esteemed member of the Lords Alliance. He informed them that Gundren had already ridden ahead, unable to contain his excitement for what awaited in Phandalin. After delivering the news, Sildar mounted his horse and left the party to finish preparing the wagon for the journey.",
+    content: "After receiving a letter from Gundren Rockseeker, Ophelia, Nynral, Renard, Whetu, and Iverest gathered in the merchant streets of Neverwinter to escort his wagon of supplies to the frontier town of Phandalin.\n\nUpon their arrival, the party was instead met by Sildar Hallwinter, protector to Gundren and an esteemed member of the Lords Alliance. He informed them that Gundren had already ridden ahead, unable to contain his excitement for what awaited in Phandalin. Before departing, Sildar presented Renard with a small skull shaped artifact, explaining that Gundren intended for the party to keep it safe on the road. After delivering the news, Sildar mounted his horse and left the group to finish preparing the wagon for the journey.",
   },
 ];
 
