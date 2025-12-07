@@ -64,6 +64,12 @@ const INITIAL_CONFIG: SiteConfig = {
 
 const INITIAL_JOURNAL: JournalEntry[] = [
   {
+    id: "3",
+    title: "Bandits on the Highroad",
+    date: "Spring, Era 4",
+    content: "After several hours on the Highroad, the party came upon an overturned wagon in a ditch. A horse lay still nearby, and a woman stood before the wreck, crying for help.\n\nAs the group approached, a handful of inexperienced highwaymen ambushed them. Once the attackers realised they were charging real adventurers, they broke and fled into the eastern woods, leaving the crying woman behind.\n\nSpeaking with her, the party learned her name was Mary and that she had been forced into the scheme. They offered her a place with them on the journey to Phandalin.\n\nBefore the group set off again, a few members noticed something unusual about Nynral's shadow, though they chose not to mention it to him at the time.",
+  },
+  {
     id: "2",
     title: "Encounter in Neverwinter",
     date: "Spring, Era 4",
