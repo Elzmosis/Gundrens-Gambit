@@ -64,6 +64,12 @@ const INITIAL_CONFIG: SiteConfig = {
 
 const INITIAL_JOURNAL: JournalEntry[] = [
   {
+    id: "2",
+    title: "Encounter in Neverwinter",
+    date: "Spring, Era 4",
+    content: "A few minutes after Sildar had left, a group of three thugs approached the party. The thugs were intercepted by Ophelia and Iverest. The thugs threatened the two, demanding the artifact. After diplomacy failed, the group had a skirmish in the street. Two of the three thugs were killed.\n\nAfter searching the bodies, Iverest found a lone note in the leader's pocket depicting a spider. Once the guards carried away the thugs, the group finished packing the wagon and left Neverwinter, leaving for the Highroad.",
+  },
+  {
     id: "1",
     title: "Arrival to Neverwinter",
     date: "Spring, Era 4",
